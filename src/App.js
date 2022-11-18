@@ -1,11 +1,25 @@
+import "./App.css";
 
-import './App.css';
-import Search from './containers/Search/Search';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Header from "./Components/Header/Header";
+import Home from "./Containers/Home/Home";
+import PopularFilms from "./Containers/PopularFilms/PopularFilms";
+import SearchFilms from "./Containers/SearchFilms/SearchFilms"; 
+
 
 function App() {
   return (
     <div className="App">
-      <Search/>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/films" element={<PopularFilms />} />
+          <Route path="/search" element={<SearchFilms />} />
+        </Routes>
+
+      </BrowserRouter>
     </div>
   );
 }
